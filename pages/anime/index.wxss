@@ -1,0 +1,79 @@
+.ikf-detail {
+    margin-bottom: 1px;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.ikf-detail .picbox {
+    width: 160rpx;
+    float: left;
+    margin: 10rpx;
+}
+
+.ikf-detail .picbox .pic {
+    width: 100%;
+    height: 240rpx;
+    display: block;
+}
+
+.ikf-detail .detail {
+    margin-left: 190rpx;
+    font-size: 22rpx;
+    padding-bottom: 10rpx;
+}
+
+.ikf-detail .detail .title {
+    font-size: 28rpx;
+    font-weight: 400;
+    padding-top: 10rpx;
+    margin-bottom: 10rpx;
+}
+
+.ikf-detail .detail .list {
+    height: 40rpx;
+    line-height: 40rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #999;
+}
+
+.ikf-detail .detail .list .gold {
+    margin-right: 10rpx;
+}
+
+.ikf-detail .detail .list .yellow {
+    color: #f83;
+}
+
+.ikf-detail .detail .list .mcid {
+    margin-right: 10rpx;
+}
+
+.ikf-detail .detail .pTxt {
+    padding-right: 35rpx;
+    position: relative;
+}
+
+.ikf-detail .detail .pTxt .arrow {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: transform .4s;
+    width: 40rpx;
+    height: 40rpx;
+    text-align: center;
+}
+
+.ikf-detail .detail .pTxt .arrow {
+    font-size: 30rpx;
+    margin-right: 0;
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.ikf-detail .detail p.pTxt .arrow.active {
+    top: auto;
+    bottom: 0;
+    transform: rotate(180deg);
+}

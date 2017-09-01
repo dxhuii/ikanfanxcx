@@ -27,6 +27,13 @@ Page({
       weekDay: w
     })
   },
+  //跳入详情页
+  vodInfo: function (event) {
+    const id = event.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: `../anime/index?id=${id}`
+    })
+  },
   onLoad: function () {
     const that = this
     wx.request({
@@ -41,6 +48,7 @@ Page({
       }
     })
     if (app.globalData.userInfo) {
+      console.info(app.globalData.userInfo)
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true

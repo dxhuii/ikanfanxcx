@@ -1,2 +1,12 @@
-<!--pages/anime/index.wxml-->
-<text>{{page}}.wxml</text>
+<view class="ikf-detail">
+  <view class='picbox'><image class="pic" src="{{anime.pic}}"></image></view>
+  <view class="detail">
+    <text class='title'>龙珠超</text>
+    <view class='list'>
+      <text class='gold'>9.0分</text><text class='yellow'>更新至105话</text>
+    </view>
+    <view class='list'><text>孙悟空</text></view>
+    <view class='list'><text>2015年</text> / <text class='mcid'>TV版</text><text class='mcid'>热血</text></view>
+    <view class='pTxt'>con<text class="arrow"></text></view>
+  </view>
+</view>

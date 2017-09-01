@@ -13,14 +13,15 @@ Page({
    */
   onLoad: function (options) {
     console.info(this, options)
+    const that = this
     wx.request({
-      url: 'https://www.ikanfan.cn/tool/week.php', //仅为示例，并非真实的接口地址
+      url: `https://www.ikanfan.cn/tool/xcxDetail.php?id=${options.id}`, //仅为示例，并非真实的接口地址
       success: function (res) {
-        console.log(res.data)
+        console.log(res.data.data[0])
         console.info(this)
-        // this.setData({
-        //   anime: res.data,
-        // })
+        that.setData({
+          anime: res.data.data[0],
+        })
       }
     })
   },
