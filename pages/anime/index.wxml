@@ -1,15 +1,20 @@
-<view class='vodpic '>
+<view class='ikf-vodpic '>
   <image class="pic" src="{{anime.pic}}"></image>
   <view class='blur' style="background-image: url({{anime.pic}})"></view>
 </view>
 <view class="ikf-detail">
   <view class="detail">
-    <text class='title'>龙珠超</text>
+    <text class='title'>{{anime.name}}</text>
     <view class='list'>
-      <text class='gold'>9.0分</text><text class='yellow'>更新至105话</text>
+      <text>{{anime.year}}</text> / <text>{{anime.type}}</text> / <text>{{anime.area}}</text> / <text>{{anime.mcid}}</text>
     </view>
-    <view class='list'><text>孙悟空</text></view>
-    <view class='list'><text>2015年</text> / <text class='mcid'>TV版</text><text class='mcid'>热血</text></view>
-    <view class='pTxt'>con<text class="arrow"></text></view>
+    <view class='list'>
+      <text>更新时间：{{anime.time}}</text> / <text class='yellow'>{{anime.continu}}</text>
+    </view>
+  </view>
+  <view class='gold'>
+    <text class='title'>爱看番评分</text>
+    <text class='score'>{{anime.gold}}</text>
+    <view class='scoreb'><view class='scorew' style='width: {{(anime.gold)*10}}%'></view></view>
   </view>
 </view>
