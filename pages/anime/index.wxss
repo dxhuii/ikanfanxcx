@@ -4,16 +4,23 @@
     overflow: hidden;
 }
 
-.ikf-detail .picbox {
-    width: 160rpx;
-    float: left;
-    margin: 10rpx;
+.vodpic {
+  position: relative;
+  width: 100%;
+  height: 420rpx;
+  overflow: hidden;
 }
 
-.ikf-detail .picbox .pic {
-    width: 100%;
-    height: 240rpx;
-    display: block;
+.vodpic .blur{position: absolute;left: 0;top: 0;height: 420rpx;right: 0;filter: blur(30px);background-repeat: no-repeat;background-size: cover;z-index: 1;}
+
+.vodpic .pic {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 240rpx;
+    height: 320rpx;
+    z-index: 2;
 }
 
 .ikf-detail .detail {

@@ -1,5 +1,8 @@
+<view class='vodpic '>
+  <image class="pic" src="{{anime.pic}}"></image>
+  <view class='blur' style="background-image: url({{anime.pic}})"></view>
+</view>
 <view class="ikf-detail">
-  <view class='picbox'><image class="pic" src="{{anime.pic}}"></image></view>
   <view class="detail">
     <text class='title'>龙珠超</text>
     <view class='list'>
