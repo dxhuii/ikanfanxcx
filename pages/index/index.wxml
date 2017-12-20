@@ -7,21 +7,25 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-  <!-- <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view> -->
   <view class="week">
     <text class="weeklist" data-week="{{i}}" bindtap="bindWeek" wx:for="{{[1, 2, 3, 4, 5, 6, 7]}}" wx:for-item="i" wx:key="i"><text class='now' wx:if="{{i === weekDay}}">{{i}}</text><block wx:else>{{i}}</block></text>
   </view>
   <view class="d-item">
-    <view class="list" bindtap="vodInfo" wx:for="{{weekData}}" wx:for-index="idx" wx:key="idx" wx:for-item="item" data-id="{{item.id}}">
-      <view class='picbox'><image class="pic" src="{{item.vodPic}}"></image></view>
-      <text class='title'>{{item.title}}</text>
-      <text class='text' wx:if="{{item.isDate}}">
+    <view
+      class="list"
+      bindtap="vodInfo"
+      wx:for="{{weekData}}"
+      wx:for-index="idx"
+      wx:key="idx"
+      wx:for-item="item"
+      data-id="{{item.id}}">
+        <view class='picbox'><image class="pic" src="{{item.vodPic}}"></image></view>
+        <text class='title'>{{item.title}}</text>
+        <text class='text' wx:if="{{item.isDate}}">
         <text class='status' wx:if="{{item.status === '更新至0话'}}">完结</text>
         <text class='status' wx:else> {{item.status}} </text>
-      </text>
-      <text class='text' wx:else> {{item.status}} </text>
+        </text>
+        <text class='text' wx:else> {{item.status}} </text>
     </view>
   </view>
 </view>
