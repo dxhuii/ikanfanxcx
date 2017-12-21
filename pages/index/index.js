@@ -27,6 +27,12 @@ Page({
       weekDay: w
     })
   },
+  formSubmit: function(e) {
+    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    wx.navigateTo({
+      url: `../search/index?id=${e.detail.value.input}`
+    })
+  },
   //跳入详情页
   vodInfo: function (event) {
     const id = event.currentTarget.dataset.id;

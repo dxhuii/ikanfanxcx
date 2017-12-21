@@ -7,6 +7,10 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
+  <form bindsubmit="formSubmit" class="search">
+    <button formType="submit">搜索</button>
+    <input name="input" placeholder="请输入您要搜索动漫名称或者声优" />
+  </form>
   <view class="week">
     <text class="weeklist" data-week="{{i}}" bindtap="bindWeek" wx:for="{{[1, 2, 3, 4, 5, 6, 7]}}" wx:for-item="i" wx:key="i"><text class='now' wx:if="{{i === weekDay}}">{{i}}</text><block wx:else>{{i}}</block></text>
   </view>

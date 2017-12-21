@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/anime/index"
+    "pages/anime/index",
+    "pages/search/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

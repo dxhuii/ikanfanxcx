@@ -1,0 +1,14 @@
+<view class="d-item">
+  <view
+    class="list"
+    bindtap="vodInfo"
+    wx:for="{{data}}"
+    wx:for-index="idx"
+    wx:key="idx"
+    wx:for-item="item"
+    data-id="{{item.url}}">
+    <view class='picbox'><image class="pic" src="{{item.pic}}"></image></view>
+    <text class='title'>{{item.title}}</text>
+    <text class='text'> {{item.continu}} </text>
+  </view>
+</view>

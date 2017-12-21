@@ -1,0 +1,7 @@
+.d-item{width: 100%;}
+.d-item .list{position: relative;float: left;margin: 10px 18px;width: 170px;}
+.d-item .list .picbox{position: relative;z-index: 2;width: 170px;height: 230px;border-radius: 4px;overflow: hidden;box-shadow: 0 3px 14px 0 rgba(203, 193, 187, .40);}
+.d-item .list .picbox .pic{position: absolute;left: 0;top: 0;right: 0;bottom: 0;margin: auto;overflow: auto;display: block;width: 170px;}
+.d-item .list .text{margin-top: 6px;height: 16px;line-height: 16px;color: #999;overflow: hidden;display: block;font-size: 14px;}
+.d-item .list .text .status{color: #f60;}
+.d-item .list .title{margin: 15px 0;height:20px;line-height: 20px;font-size: 16px;font-weight: blod;color: #333;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;display: block;}
