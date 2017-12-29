@@ -1,16 +1,16 @@
 //index.js
 //获取应用实例
 const app = getApp()
-const week = new Date().getDay()
-const a = new Array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
 Page({
   data: {
-    motto: 'Hello World',
     userInfo: {},
     animeData: [],
     weekData: [],
-    weekDay: week,
+    weekEng: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    weekDay: new Date().getDay() - 1,
+    weekCn: ['一', '二', '三', '四', '五', '六', '日'],
     hasUserInfo: false,
+    isAnimeData: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   //事件处理函数
@@ -22,8 +22,9 @@ Page({
   //事件处理函数
   bindWeek: function (event) {
     const w = event.currentTarget.dataset.week;
+    console.info(w)
     this.setData({
-      weekData: this.data.animeData[a[w - 1]],
+      weekData: this.data.animeData[this.data.weekEng[w]],
       weekDay: w
     })
   },
@@ -42,14 +43,17 @@ Page({
   },
   onLoad: function () {
     const that = this
+    const week = this.data.weekDay
+    const eng = this.data.weekEng
     wx.request({
-      url: 'https://www.ikanfan.cn/tool/week.php', //仅为示例，并非真实的接口地址
+      url: 'https://www.ikanfan.cn/tool/week.php',
       success: function (res) {
-        console.log(res.data.ResponseData[a[week - 1]])
-        console.log(a[week - 1])
+        console.log(res.data.ResponseData[eng[week]])
+        console.log(eng[week])
         that.setData({
           animeData: res.data.ResponseData,
-          weekData: res.data.ResponseData[a[week - 1]]
+          weekData: res.data.ResponseData[eng[week]],
+          isAnimeData: true,
         })
       }
     })

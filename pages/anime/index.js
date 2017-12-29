@@ -9,7 +9,8 @@ Page({
     playList: [],
     playerList: [],
     playerData: [],
-    close: false
+    close: false,
+    isData: false
   },
   vodInfo: function (event) {
     const id = event.currentTarget.dataset.id;
@@ -41,7 +42,7 @@ Page({
   },
   playUrl(type, url) {
     console.log(url)
-    return `http://www.ikanfan.com${url}?s=${type}&f=xcx`
+    return `https://m.ikanfan.com${url}?source=${type}&from=xcx`
   },
   playerList(event) {
     const dataset = event.currentTarget.dataset;
@@ -55,9 +56,9 @@ Page({
     let playerData = []
     for (let e = 0; e < data.length; e++) {
       const d = data[e].playurls[parseInt(pid) - 1]
-      pid <= data[e].playurls.length && playerData.push({ type: data[e].playname, vid: d[1], name: this.playName(data[e].playname), title: d[0], url })
+      pid <= data[e].playurls.length && playerData.push({ type: data[e].playname, vid: d[1], name: this.playName(data[e].playname), title: d[0], url: d[2] })
     }
-    console.info(playerData, sid, pid)
+    console.info(playerData, sid, pid, data)
     this.setData({
       playerData,
       close: true
@@ -67,20 +68,24 @@ Page({
     const dataset = event.currentTarget.dataset;
     const { type, url } = dataset
     const href = this.playUrl(type, url)
-    wx.setClipboardData({
-      data: href,
-      success: function (res) {
-        wx.getClipboardData({
-          success: function (res) {
-            wx.showModal({
-              title: '复制成功',
-              content: `把《${href}》粘贴到浏览器就可以播放了`,
-              showCancel: false
-            })
-          }
-        })
-      }
+    console.info(encodeURI(href))
+    wx.navigateTo({
+      url: `../detail/index?url=https://m.ikanfan.com${url}&source=${type}&from=xcx`
     })
+    // wx.setClipboardData({
+    //   data: href,
+    //   success: function (res) {
+    //     wx.getClipboardData({
+    //       success: function (res) {
+    //         wx.showModal({
+    //           title: '复制成功',
+    //           content: `把《${href}》粘贴到浏览器就可以播放了`,
+    //           showCancel: false
+    //         })
+    //       }
+    //     })
+    //   }
+    // })
   },
   close() {
     this.setData({
@@ -99,6 +104,7 @@ Page({
         console.log(res.data.data[0])
         that.setData({
           anime: res.data.data[0],
+          isData: true
         })
         wx.setNavigationBarTitle({ title: res.data.data[0].name })
       }
