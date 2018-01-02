@@ -9,14 +9,9 @@ Page({
     playList: [],
     playerList: [],
     playerData: [],
+    isJump: 0,
     close: false,
     isData: false
-  },
-  vodInfo: function (event) {
-    const id = event.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: `../anime/index?id=${id}`
-    })
   },
   playName(a) {
     var b = []
@@ -68,24 +63,26 @@ Page({
     const dataset = event.currentTarget.dataset;
     const { type, url } = dataset
     const href = this.playUrl(type, url)
-    console.info(encodeURI(href))
-    wx.navigateTo({
-      url: `../detail/index?url=https://m.ikanfan.com${url}&source=${type}&from=xcx`
-    })
-    // wx.setClipboardData({
-    //   data: href,
-    //   success: function (res) {
-    //     wx.getClipboardData({
-    //       success: function (res) {
-    //         wx.showModal({
-    //           title: '复制成功',
-    //           content: `把《${href}》粘贴到浏览器就可以播放了`,
-    //           showCancel: false
-    //         })
-    //       }
-    //     })
-    //   }
-    // })
+    if (this.data.isJump){
+      wx.navigateTo({
+        url: `../detail/index?url=https://m.ikanfan.com${url}&source=${type}&from=xcx`
+      })
+    }else{
+      wx.setClipboardData({
+        data: href,
+        success: function (res) {
+          wx.getClipboardData({
+            success: function (res) {
+              wx.showModal({
+                title: '复制成功',
+                content: `把《${href}》粘贴到浏览器就可以播放了`,
+                showCancel: false
+              })
+            }
+          })
+        }
+      })
+    }
   },
   close() {
     this.setData({
@@ -112,11 +109,26 @@ Page({
     wx.request({
       url: `https://www.ikanfan.cn/tool/xcxplaylist.php?id=${options.id}`, // 播放列表
       success: function (res) {
-        console.log(res.data.data[0])
-        const data = res.data.data.Data
+        console.log(res.data.data)
+        if (res.data.data){
+          const data = res.data.data.Data
+          that.setData({
+            playList: data,
+            playerList: data[0].playurls
+          })
+        }else{
+          that.setData({
+            playerList: false
+          })
+        }
+      }
+    })
+    wx.request({
+      url: 'https://www.ikanfan.cn/tool/xcxIsJump.php',
+      success: function (res) {
+        console.log(res.data)
         that.setData({
-          playList: data,
-          playerList: data[0].playurls
+          isJump: res.data.status
         })
       }
     })

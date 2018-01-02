@@ -21,7 +21,7 @@
     <view class='scoreb'><view class='scorew' style='width: {{(anime.gold)*10}}%'></view></view>
   </view>
 </view>
-<view class="playlist">
+<view class="playlist" wx:if="{{playerList}}">
   <view class="playtitle">播放列表</view>
   <view class="playerlist">
     <view
@@ -35,22 +35,27 @@
     >
       {{item[0]}}
     </view>
-  </view>
-  <block wx:if="{{close}}">
-    <view class="dialog">
-      <view class="close" bindtap="close"></view>
-      <view
-        class="list"
-        wx:for="{{playerData}}"
-        wx:key="index"
-        wx:for-item="item"
-        data-type="{{item.type}}"
-        data-url="{{item.url}}"
-        bindtap="player"
-      >
-        <text class="icon {{item.type}}"></text>{{item.name}}
+    <block wx:if="{{close}}">
+      <view class="dialog">
+        <view class="close" bindtap="close"></view>
+        <view
+          class="list"
+          wx:for="{{playerData}}"
+          wx:key="index"
+          wx:for-item="item"
+          data-type="{{item.type}}"
+          data-url="{{item.url}}"
+          bindtap="player"
+        >
+          <text class="icon {{item.type}}"></text>{{item.name}}
+        </view>
       </view>
+      <view class="mask" bindtap="close"></view>
+    </block>
+  </view>
+</view>
+<view class="playlist" wx:else>
+    <view class="playerlist">
+      <view class="list">暂无播放列表</view>
     </view>
-    <view class="mask" bindtap="close"></view>
-  </block>
 </view>

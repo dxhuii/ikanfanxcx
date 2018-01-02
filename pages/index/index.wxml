@@ -5,6 +5,7 @@
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <text>欢迎来到爱看番</text>
     </block>
   </view>
   <form bindsubmit="formSubmit" class="search">
