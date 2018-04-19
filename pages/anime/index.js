@@ -32,7 +32,11 @@ Page({
     b['cm'] = 'CM'
     b['op'] = 'OP'
     b['mad'] = 'MAD'
-    b['yugao'] = '预告'
+    b['other'] = '其他A'
+    b['otherB'] = '其他B'
+    b['otherC'] = '其他C'
+    b['otherD'] = '其他D'
+    b['nodel'] = '未删减'
     return b[a]
   },
   playUrl(type, url) {

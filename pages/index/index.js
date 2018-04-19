@@ -57,6 +57,15 @@ Page({
         })
       }
     })
+    wx.request({
+      url: 'https://pic.sogou.com/pics/json.jsp?query=%E8%98%91%E8%8F%87%E5%A4%B4%20%E8%A1%A8%E6%83%85&st=5&start=0&xml_len=100&reqFrom=wap_result&',
+      success: function (res) {
+        console.log(res,'sogouxx');
+        that.setData({
+          smileList: res.data.items
+        })
+      }
+    })
     if (app.globalData.userInfo) {
       console.info(app.globalData.userInfo)
       this.setData({
